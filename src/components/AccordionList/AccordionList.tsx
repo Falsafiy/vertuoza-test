@@ -9,13 +9,13 @@ import {Company, Contact} from '@/types/generated';
 import EntityForm from '@/form/EntityForm';
 import {EntityType} from '@/constant/entities';
 import {CompanyFormData, ContactFormData} from '@/types/forms';
- 
+
 interface AccordionListProps {
     entityType: EntityType;
     rowData: Company[] | Contact[];
     columnDefs: ColDef[];
     onAddEntity: (entityType: EntityType, formData: CompanyFormData | ContactFormData) => void;
-    onRowClicked: (rowData: Company | Contact) => void;
+    onRowClicked: (rowData: Company | Contact, entityTypeClicked: EntityType) => void;
 }
 
 const AccordionList: React.FC<AccordionListProps> = ({ entityType, rowData, columnDefs, onAddEntity, onRowClicked }) => {
@@ -50,7 +50,7 @@ const AccordionList: React.FC<AccordionListProps> = ({ entityType, rowData, colu
           <AgGridReact
             rowData={rowData}
             columnDefs={columnDefs}
-            onRowClicked={({ data }) => onRowClicked(data)}
+            onRowClicked={({ data }) => onRowClicked(data, entityType)}
           />
         </div>
       </AccordionContent>

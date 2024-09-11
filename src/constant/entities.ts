@@ -1,4 +1,4 @@
 export enum EntityType {
-    COMPANY = 'Company',
-    CONTACT = 'Contact',
+    COMPANY = 'COMPANY',
+    CONTACT = 'CONTACT',
 }

@@ -9,7 +9,7 @@ interface CompanyFormProps {
     onSubmit: SubmitHandler<CompanyFormData>;
     defaultValues?: CompanyFormData;
 }
- 
+
 const CompanyForm: React.FC<CompanyFormProps> = ({ onSubmit, defaultValues }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<CompanyFormData>({
     defaultValues,

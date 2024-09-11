@@ -9,7 +9,7 @@ interface ContactFormProps {
     onSubmit: SubmitHandler<ContactFormData>;
     defaultValues?: ContactFormData;
 }
- 
+
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, defaultValues }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<ContactFormData>({
     defaultValues,
