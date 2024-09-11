@@ -1,0 +1,59 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+directive @fake(type: String, options: JSON) on FIELD_DEFINITION
+
+interface Entity {
+    id: ID! @fake(type: uuid)
+    name: String! @fake(type: firstName)
+}
+
+type Contact implements Entity {
+    id: ID! @fake(type: uuid)
+    name: String! @fake(type: firstName)
+    email: String! @fake(type: email)
+    phone: String @fake(type: phoneNumber)
+}
+
+type Company implements Entity {
+    id: ID! @fake(type: uuid)
+    name: String! @fake(type: companyName)
+    industry: String! @fake(type: word) # Use 'word' to mock an industry
+    contactEmail: String @fake(type: email)
+}
+
+input CreateEntityInput {
+    entityType: EntityType!
+    name: String!
+    email: String
+    phone: String
+    industry: String
+    contactEmail: String
+}
+
+input UpdateEntityInput {
+    id: ID!
+    entityType: EntityType!
+    name: String
+    email: String
+    phone: String
+    industry: String
+    contactEmail: String
+}
+
+enum EntityType {
+    CONTACT
+    COMPANY
+}
+
+type Mutation {
+    createEntity(input: CreateEntityInput): Entity
+    updateEntity(input: UpdateEntityInput): Entity
+}
+
+type Query {
+    getEntities: [Entity] @listLength(min: 1, max: 10)
+    getEntity(id: ID!): Entity
+}
