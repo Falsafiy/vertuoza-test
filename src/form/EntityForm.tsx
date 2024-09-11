@@ -1,20 +1,33 @@
 import React from 'react';
 
-import { Company, Contact } from '@/types/generated';
-import { EntityType } from '@/constant/entities';
 import {CompanyFormData, ContactFormData} from '@/types/forms';
+import {LocalEntityType} from '@/constant/entities';
 
 import CompanyForm from './CompanyForm';
 import ContactForm from './ContactForm';
 
+export interface IEntity {
+    id: string,
+    name: string,
+}
+
+export interface ICompany extends IEntity {
+    industry: string,
+    contactEmail: string,
+}
+
+export interface IContact extends IEntity {
+    email: string,
+    phone: string,
+}
 interface EntityFormProps {
-    entityType?: EntityType;
+    entityType?: LocalEntityType;
     onSubmit: (data: CompanyFormData | ContactFormData, id?: string) => void;
-    entity?: Company | Contact;
+    entity?: ICompany | IContact;
 }
 
 const EntityForm: React.FC<EntityFormProps> = ({ entityType, onSubmit, entity }) => {
-  const isCompany = entityType === EntityType.COMPANY;
+  const isCompany = entityType === LocalEntityType.COMPANY;
 
   return isCompany ? (
     <CompanyForm

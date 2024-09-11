@@ -6,20 +6,20 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/
 import { Button } from '@/components/ui/button';
 import { AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import {Company, Contact} from '@/types/generated';
-import EntityForm from '@/form/EntityForm';
-import {EntityType} from '@/constant/entities';
+import EntityForm, {ICompany, IContact} from '@/form/EntityForm';
 import {CompanyFormData, ContactFormData} from '@/types/forms';
+import {LocalEntityType} from '@/constant/entities';
 
 interface AccordionListProps {
-    entityType: EntityType;
-    rowData: Company[] | Contact[];
+    entityType: LocalEntityType;
+    rowData: ICompany[] | IContact[];
     columnDefs: ColDef[];
-    onAddEntity: (entityType: EntityType, formData: CompanyFormData | ContactFormData) => void;
-    onRowClicked: (rowData: Company | Contact, entityTypeClicked: EntityType) => void;
+    onAddEntity: (entityType: LocalEntityType, formData: CompanyFormData | ContactFormData) => void;
+    onRowClicked: (rowData: ICompany | IContact, entityTypeClicked: LocalEntityType) => void;
 }
 
 const AccordionList: React.FC<AccordionListProps> = ({ entityType, rowData, columnDefs, onAddEntity, onRowClicked }) => {
-  const isCompany = entityType === EntityType.COMPANY;
+  const isCompany = entityType === LocalEntityType.COMPANY;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const handleAddEntity = (formData: CompanyFormData | ContactFormData) => {
     onAddEntity(entityType, formData);

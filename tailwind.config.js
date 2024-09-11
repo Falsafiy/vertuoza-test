@@ -13,6 +13,10 @@ module.exports = {
       'gray-200': 'var(--color--light-gray)',
       'gray-300': 'var(--color--light-gray)',
       'white': 'var(--color--white)',
+      'red': 'var(--color--red)',
+      'orange-primary': 'var(--color--orange-primary)',
+      'green-inactive': 'var(--color--green-inactive)',
+      'green-primary': 'var(--color--green-hover)',
     },
 
   	extend: {

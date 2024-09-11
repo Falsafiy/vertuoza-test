@@ -1,4 +1,4 @@
-export enum EntityType {
-    COMPANY = 'COMPANY',
-    CONTACT = 'CONTACT',
+export enum LocalEntityType {
+    COMPANY = 'Company',
+    CONTACT = 'Contact',
 }

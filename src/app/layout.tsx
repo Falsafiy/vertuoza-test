@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 import ApolloProviderWrapper from '@/providers/ApolloProviderWrapper';
+import {Toaster} from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: 'Vertuoza test by Younce',
@@ -25,6 +26,7 @@ export default function RootLayout({
           className={'antialiased'}
         >
           {children}
+          <Toaster />
         </body>
       </ApolloProviderWrapper>
     </html>
