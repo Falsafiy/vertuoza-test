@@ -33,7 +33,7 @@ yarn install
 The project requires a mock GraphQL server to provide the data. You can start it using Docker:
 
 ```bash
-docker run -p 4000:9002 -v $(pwd)/server/schema.sdl:/app/schema.sdl apisguru/graphql-faker /app/schema.sdl
+docker run -p 9002:9002 -v $(pwd)/server/schema.sdl:/app/schema.sdl apisguru/graphql-faker /app/schema.sdl
 ```
 This will launch **GraphQL Faker** on port `9002` using the schema defined in `server/schema.sdl`.
 
