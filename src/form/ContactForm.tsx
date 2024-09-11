@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import InputField from '@/components/ui/Input/Input';
 import {ContactFormData} from '@/types/forms';
+import {Button} from '@/components/ui/button';
 
 interface ContactFormProps {
     onSubmit: SubmitHandler<ContactFormData>;
@@ -46,7 +47,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, defaultValues }) =>
         rules={{ required: 'Phone is required' }}
       />
 
-      <button type="submit">Submit</button>
+      <div className={'w-full flex justify-end'}>
+        <Button type="submit" >Submit</Button>
+      </div>
     </form>
   );
 };
