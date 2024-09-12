@@ -49,7 +49,6 @@ const CompanyForm: React.FC<CompanyFormProps> = ({ onSubmit, defaultValues }) =>
       <div className={'w-full flex justify-end'}>
         <Button type="submit" >Submit</Button>
       </div>
-
     </form>
   );
 };
